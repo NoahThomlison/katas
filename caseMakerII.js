@@ -1,12 +1,30 @@
 const makeCase = function(input, type)  {
   splitString = input.split(' ')
 
-  console.log(capitalizeFirstLetter(splitString[0]))
+  switch (type){
+    case 'camel':
+      answer = []
+      answer[0] = splitString[0]
+      for (let i = 1; i < splitString.length; i++){
+        answer[i] = capitalizeFirstLetter(splitString[i])
+      }
+      return (answer.join(""))
+    break;
+
+    case 'pascal':
+      answer = []
+      for (let i = 0; i < splitString.length; i++){
+        answer[i] = capitalizeFirstLetter(splitString[i])
+      }
+      return (answer.join(""))
+    break;
+  }
+
+ 
 }
 
 function capitalizeFirstLetter(input){
   let newString = ''
-
   newString += input[0].toUpperCase()
   for (let i = 1; i < input.length; i++){
     newString += input[i]
@@ -15,8 +33,8 @@ function capitalizeFirstLetter(input){
   return(newString)
 }
 
-makeCase("this is a string", 2);
-// console.log(makeCase("this is a string", "pascal"));
+console.log(makeCase("this is a string", "camel"));
+console.log(makeCase("this is a string", "pascal"));
 // console.log(makeCase("this is a string", "snake"));
 // console.log(makeCase("this is a string", "kebab"));
 // console.log(makeCase("this is a string", "title"));
