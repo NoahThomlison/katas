@@ -18,9 +18,24 @@ const makeCase = function(input, type)  {
       }
       return (answer.join(""))
     break;
-  }
 
- 
+    case 'snake':
+      return (splitString.join("_"))
+    break;
+
+    case 'kebab':
+      return (splitString.join("-"))
+    break;
+
+    case 'title':
+      answer = []
+      for (let i = 0; i < splitString.length; i++){
+        answer[i] = capitalizeFirstLetter(splitString[i])
+      }
+      return (answer.join(" "))
+    break;
+
+  } 
 }
 
 function capitalizeFirstLetter(input){
@@ -35,16 +50,17 @@ function capitalizeFirstLetter(input){
 
 console.log(makeCase("this is a string", "camel"));
 console.log(makeCase("this is a string", "pascal"));
-// console.log(makeCase("this is a string", "snake"));
-// console.log(makeCase("this is a string", "kebab"));
-// console.log(makeCase("this is a string", "title"));
+console.log(makeCase("this is a string", "snake"));
+console.log(makeCase("this is a string", "kebab"));
+console.log(makeCase("this is a string", "title"));
 // console.log(makeCase("this is a string", "vowel"));
 // console.log(makeCase("this is a string", "consonant"));
 // console.log(makeCase("this is a string", ["upper", "snake"]));
 
 
-// thisIsAString remove all spaces, capitalize first letter after space
-// ThisIsAString remove all spaces, capitalize firts letter in all words
+// EXPECTED ANSWERS
+// thisIsAString
+// ThisIsAString
 // this_is_a_string 
 // this-is-a-string
 // This Is A String
