@@ -1,4 +1,24 @@
 const makeCase = function(input, type)  {
+
+  if (Array.isArray(type) == true){
+    loops = type.length
+  }
+  else {
+    loops = 1
+  }
+
+  while (loops > 0){
+    console.log('ding')
+    loops = loops - 1
+    console.log(loops)
+    answer = caseSwitch (input, type)
+    console.log(answer)
+  }
+
+  return answer
+}
+
+function caseSwitch (input, type){
   splitString = input.split(' ')
 
   switch (type){
@@ -52,8 +72,7 @@ const makeCase = function(input, type)  {
       }
       return (answer.join(" "))
     break;
-
-  } 
+  }
 }
 
 function capitalizeFirstLetter(input){
@@ -86,51 +105,29 @@ function capitalizeBasedOnArray(input, capArray){
 }
 
 //camelcase
-if(makeCase("this is a string", "camel") == 'thisIsAString'){
-  console.log('camelcase: correct')
-}
-else{console.log('camelcase: incorrect')}
+if(makeCase("this is a string", "camel") == 'thisIsAString'){console.log('camelcase: correct')}
 
 //pascalcase
-if(makeCase("this is a string", "pascal") == 'ThisIsAString'){
-  console.log('pascalcase: correct')
-}
-else{console.log('pascalcase: incorrect')}
+if(makeCase("this is a string", "pascal") == 'ThisIsAString'){console.log('pascalcase: correct')}
 
 //snakecase
-if(makeCase("this is a string", "snake") == 'this_is_a_string'){
-  console.log('snakecase: correct')
-}
-else{console.log('snakecase: incorrect')}
+if(makeCase("this is a string", "snake") == 'this_is_a_string'){console.log('snakecase: correct')}
 
 //kebabcase
-if(makeCase("this is a string", "kebab") == 'this-is-a-string'){
-  console.log('kebabcase: correct')
-}
-else{console.log('kebabcase: incorrect')}
+if(makeCase("this is a string", "kebab") == 'this-is-a-string'){console.log('kebabcase: correct')}
 
 //title
-if(makeCase("this is a string", "title") == 'This Is A String'){
-  console.log('title: correct')
-}
-else{console.log('title: incorrect')}
+if(makeCase("this is a string", "title") == 'This Is A String'){console.log('title: correct')}
 
 //vowel
-if(makeCase("this is a string", "vowel") == 'thIs Is A strIng'){
-  console.log('vowel: correct')
-}
-else{console.log('vowel: incorrect')}
+if(makeCase("this is a string", "vowel") == 'thIs Is A strIng'){ console.log('vowel: correct')}
 
 //consonant
-if(makeCase("this is a string", "consonant") == 'THiS iS a STRiNG'){
-  console.log('consonant: correct')
-}
-else{console.log('consonant: incorrect')}
+if(makeCase("this is a string", "consonant") == 'THiS iS a STRiNG'){console.log('consonant: correct')}
 
+//upper + consonant
+if(makeCase("this is a string", ["upper", "snake"]) == 'THiS iS a STRiNG'){console.log('combo: correct')}
 
-
-// console.log(makeCase("this is a string", "consonant"));
-console.log(makeCase("this is a string", ["upper", "snake"]));
 
 
 
